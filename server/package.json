@@ -4,7 +4,7 @@
   "description": "Application using NodeJs and GraphQL",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --ext js,graphql --ignore data/ server.js"
   },
   "private": true,
   "type": "module",
