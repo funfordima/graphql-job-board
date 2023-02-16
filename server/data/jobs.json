@@ -22,5 +22,11 @@
     "title": "DevOps Engineer",
     "companyId": "pVbRRBQtMVw6lUAkj1k43",
     "description": "We need somebody to restart the server when they fall over. We require 2 people."
+  },
+  {
+    "id": "nvHD4yw2PYtQKcBlF6MxT",
+    "title": "Awesome QA Engineer",
+    "description": "We need someone who can setup and perform tests for our company",
+    "companyId": "wvdB54Gqbdp_NZTXK9Tue"
   }
 ]
