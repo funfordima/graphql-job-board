@@ -1,5 +1,6 @@
 import { makeExecutableSchema } from '@graphql-tools/schema';
-import { ApolloServer } from 'apollo-server-express';
+import { ApolloServer } from '@apollo/server';
+import { expressMiddleware as apolloExpress } from '@apollo/server/express4';
 import cors from 'cors';
 import express from 'express';
 import { expressjwt } from 'express-jwt';
@@ -58,9 +59,9 @@ const schema = makeExecutableSchema({ typeDefs, resolvers });
 
 useWsServer({ schema, context: getWsContext }, wsServer);
 
-const apolloServer = new ApolloServer({ schema, context: getCHttpContext });
+const apolloServer = new ApolloServer({ schema });
 await apolloServer.start();
-apolloServer.applyMiddleware({ app, path: '/graphql' });
+app.use('/graphql', apolloExpress(apolloServer, { context: getCHttpContext }));
 
 httpServer.listen({ port: PORT }, () => {
   console.log(`Server running on port ${PORT}`);
